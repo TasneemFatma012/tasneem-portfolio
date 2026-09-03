@@ -51,7 +51,7 @@ function getImageUrl(url) {
     url.startsWith("http://") ||
     url.startsWith("https://")
       ? url
-      : `http://localhost:5000${url}`;
+      : `${API_BASE}${url}`;
 
   console.log("IMAGE URL:", finalUrl);
 
