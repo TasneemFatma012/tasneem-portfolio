@@ -4,6 +4,8 @@ import {
   Code2,
   FolderGit2,
   Github,
+  Linkedin,
+  BarChart3,
   GraduationCap,
   Award,
   Briefcase,
@@ -16,7 +18,9 @@ const NAV_ITEMS = [
   { name: "About", icon: User, id: "about" },
   { name: "Skills", icon: Code2, id: "skills" },
   { name: "Projects", icon: FolderGit2, id: "projects" },
-  { name: "Github", icon: Github, id: "github" },
+  { name: "GitHub", icon: Github, id: "github" },
+  { name: "LinkedIn", icon: Linkedin, id: "linkedin" },
+  { name: "DSA", icon: BarChart3, id: "dsa" },
   { name: "Education", icon: GraduationCap, id: "education" },
   { name: "Certificates", icon: Award, id: "certificates" },
   { name: "Experience", icon: Briefcase, id: "experience" },
@@ -35,7 +39,7 @@ export default function Navbar({ name }) {
 
         {/* Navigation */}
         <div
-          className="hidden md:flex"
+          className="navbar-desktop-links hidden md:flex"
           style={{
             gap: 20,
             fontSize: 12,
@@ -55,6 +59,15 @@ export default function Navbar({ name }) {
               }}
             >
               <Icon size={15} strokeWidth={1.8} />
+              <span>{name}</span>
+            </a>
+          ))}
+        </div>
+
+        <div className="navbar-mobile-links" aria-label="Portfolio sections">
+          {NAV_ITEMS.map(({ name, icon: Icon, id }) => (
+            <a key={id} href={`#${id}`} className="navbar-mobile-link">
+              <Icon size={14} strokeWidth={1.8} aria-hidden="true" />
               <span>{name}</span>
             </a>
           ))}

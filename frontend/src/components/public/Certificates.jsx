@@ -90,16 +90,34 @@ export default function Certificates({ certificates }) {
                     {cert.org}
                   </div>
 
-                  <div
-                    style={{
-                      ...mono,
-                      fontSize: 11,
-                      color: c.muted,
-                      marginTop: 5
-                    }}
-                  >
-                    {cert.date}
-                  </div>
+                  {cert.date && (
+                    <div
+                      style={{
+                        ...mono,
+                        fontSize: 11,
+                        color: c.muted,
+                        marginTop: 5
+                      }}
+                    >
+                      {cert.date}
+                    </div>
+                  )}
+
+                  {cert.details?.length > 0 && (
+                    <ul
+                      style={{
+                        color: c.muted,
+                        fontSize: 12,
+                        lineHeight: 1.6,
+                        margin: "8px 0 0",
+                        paddingLeft: 16,
+                      }}
+                    >
+                      {cert.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
 
                 </div>
 

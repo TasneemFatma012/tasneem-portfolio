@@ -6,7 +6,7 @@ import {
   TestTube,
   Hammer,
   Rocket,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 
 import Section from "../common/Section";
@@ -47,7 +47,7 @@ export default function Experience({ experience }) {
     <Section
       id="experience"
       commit="deploy.yml"
-      label="Experience & DevOps"
+      label="Experience & Training"
     >
 
       {/* EXPERIENCE */}
@@ -172,16 +172,34 @@ export default function Experience({ experience }) {
                   </div>
 
 
-                  <p
-                    style={{
-                      fontSize: 14,
-                      lineHeight: 1.6,
-                      color: c.muted,
-                      marginTop: 12
-                    }}
-                  >
-                    {x.responsibilities}
-                  </p>
+                  {Array.isArray(x.responsibilities) ? (
+                    <ul
+                      style={{
+                        fontSize: 14,
+                        lineHeight: 1.7,
+                        color: c.muted,
+                        margin: "12px 0 0",
+                        paddingLeft: 18,
+                      }}
+                    >
+                      {x.responsibilities.map((responsibility) => (
+                        <li key={responsibility} style={{ marginTop: 4 }}>
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p
+                      style={{
+                        fontSize: 14,
+                        lineHeight: 1.6,
+                        color: c.muted,
+                        marginTop: 12,
+                      }}
+                    >
+                      {x.responsibilities}
+                    </p>
+                  )}
 
                 </div>
 

@@ -8,10 +8,18 @@ export default function Education({ education }) {
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {education.map((e) => (
           <div key={e.id} style={{ display: "flex", gap: 16 }}>
-            <div style={{ ...mono, width: 110, flexShrink: 0, fontSize: 12, color: c.teal, paddingTop: 4 }}>{e.years}</div>
+            {e.years && (
+              <div style={{ ...mono, width: 110, flexShrink: 0, fontSize: 12, color: c.teal, paddingTop: 4 }}>
+                {e.years}
+              </div>
+            )}
             <div style={{ flex: 1, borderLeft: `1px solid ${c.line}`, paddingLeft: 16, paddingBottom: 4 }}>
               <div style={{ ...display, fontWeight: 600, color: c.text }}>{e.degree}</div>
-              <div style={{ fontSize: 14, color: c.muted }}>{e.school}</div>
+              <div style={{ fontSize: 14, color: c.muted }}>
+                {e.school}
+                {e.status ? ` · ${e.status}` : ""}
+              </div>
+              {e.result && <div style={{ fontSize: 13, color: c.teal, marginTop: 5 }}>{e.result}</div>}
             </div>
           </div>
         ))}

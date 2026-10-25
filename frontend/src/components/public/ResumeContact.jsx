@@ -12,7 +12,6 @@ import ContactForm from "./ContactForm";
 
 export default function ResumeContact({
   profile,
-  onSendMessage,
 }) {
   return (
     <Section
@@ -66,7 +65,7 @@ export default function ResumeContact({
 
             <div className="resume-meta-item">
               <span>FOCUS</span>
-              <strong>Web · DevOps · Cloud</strong>
+              <strong>Web · React · Node.js</strong>
             </div>
 
           </div>
@@ -148,7 +147,7 @@ export default function ResumeContact({
           </div>
 
           <ContactForm
-            onSend={onSendMessage}
+            email={profile.email}
           />
 
         </div>

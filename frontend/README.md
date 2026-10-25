@@ -1,9 +1,7 @@
 # My Portfolio
 
-React + Vite + Tailwind portfolio with a public site and a hidden `/admin`-style
-dashboard (toggle via the floating button, bottom-right). Data is saved to
-the browser's `localStorage`, so admin edits persist on reload on the same
-device/browser.
+Static React + Vite + Tailwind portfolio. It requires no backend, database, or
+environment variables.
 
 ## Run locally
 
@@ -24,12 +22,16 @@ npm run preview   # preview the production build locally
 The build output goes to `dist/` — deploy that folder to Vercel, Netlify,
 GitHub Pages, or any static host.
 
-## Notes
+## Updating content
 
-- Admin password (demo only, not real security): `admin123`
-- GitHub Repos/Stats sections fetch live from the public GitHub API using
-  the username set in Admin → Profile → "GitHub username".
-- To connect this to the real backend (Express + MongoDB) instead of
-  localStorage, replace `loadAll()` / `save()` in `src/App.jsx` with
-  `fetch()` calls to your API — see the backend project's README for the
-  exact endpoints and example code.
+Edit the `DEFAULTS` object in `src/utils/constants.js` to update profile,
+skills, projects, education, certificates, and experience.
+
+The project gallery highlights the major projects first; mini projects are
+available in the expandable archive. Skills are shown as categories with
+project examples rather than subjective percentage ratings. Keep technology
+tags aligned with each project's repository and only add live links that have
+been checked.
+
+The contact form opens a prefilled email in the visitor's email app. GitHub
+repositories and profile stats are fetched directly from GitHub's public API.
