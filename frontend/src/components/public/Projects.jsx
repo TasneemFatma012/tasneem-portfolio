@@ -559,18 +559,26 @@ function ProjectCard({
   const tags = stackTags(project.techStack);
   const number = String(index + 1).padStart(2, "0");
   const liveUrl = getLiveUrl(project.liveUrl);
+  const projectType = project.type === "major"
+    ? "Product build"
+    : project.type === "mini"
+      ? "Quick experiment"
+      : "Side project";
 
   return (
     <article className={`project-wrapper${project.featured ? " project-featured" : ""}`}>
       <Card className="project-card">
         <header className="project-card-header">
           <span className="project-index">PROJECT_{number}</span>
-          {project.featured && (
-            <span className="project-featured-label">
-              <Star size={12} fill="currentColor" />
-              Featured
-            </span>
-          )}
+          <div className="project-card-meta">
+            <span className="project-card-badge">{project.featured ? "Featured case study" : projectType}</span>
+            {project.featured && (
+              <span className="project-featured-label">
+                <Star size={12} fill="currentColor" />
+                Featured
+              </span>
+            )}
+          </div>
         </header>
 
         <div className="project-card-layout">
@@ -584,13 +592,17 @@ function ProjectCard({
               <h3 className="project-title">{project.name}</h3>
             </div>
 
+            <div className="project-card-kicker">
+              {project.featured ? "UX + Product thinking" : "Practical build • shipped experience"}
+            </div>
+
             <p className="project-description">
               {project.description || "A full-stack web development project."}
             </p>
 
             {tags.length > 0 && (
               <div className="project-tech-stack" aria-label="Technologies used">
-                {tags.map((tag) => (
+                {tags.slice(0, 3).map((tag) => (
                   <span key={tag} className="project-tag">{tag}</span>
                 ))}
               </div>
@@ -629,16 +641,14 @@ function ProjectCard({
   );
 }
 
-function ProjectGroup({ title, description, projects, kicker }) {
+function ProjectGroup({ title, projects }) {
   if (!projects.length) return null;
 
   return (
     <section className="project-group" aria-label={title}>
       <header className="project-group-header">
         <div className="project-group-copy">
-          <span className="project-group-kicker">{kicker}</span>
           <h3>{title}</h3>
-          <p>{description}</p>
         </div>
         <span className="project-group-count">
           {String(projects.length).padStart(2, "0")}
@@ -675,8 +685,7 @@ export default function Projects({
       label="Projects"
     >
       <div className="projects-intro">
-        <p>From full-scale applications to focused experiments.</p>
-        <span>{String(projects.length).padStart(2, "0")} total</span>
+        <span>{String(projects.length).padStart(2, "0")} total projects</span>
       </div>
 
       {/* =================================================
@@ -736,9 +745,7 @@ export default function Projects({
         <div className="project-groups">
           <ProjectGroup
             title="Major Projects"
-            description="End-to-end applications built to solve practical problems."
             projects={projects.filter((project) => project.type === "major")}
-            kicker="WEB DEVELOPMENT · FEATURED WORK"
           />
           {projects.some((project) => project.type === "mini") && (
             <details className="project-archive">
@@ -754,18 +761,14 @@ export default function Projects({
               </summary>
               <ProjectGroup
                 title="Mini Projects"
-                description="Smaller web builds and supporting data explorations."
                 projects={projects.filter((project) => project.type === "mini")}
-                kicker="MORE FROM THE WORKBENCH"
               />
             </details>
           )}
           {projects.some((project) => !["major", "mini"].includes(project.type)) && (
             <ProjectGroup
               title="Other Projects"
-              description="Additional projects and experiments."
               projects={projects.filter((project) => !["major", "mini"].includes(project.type))}
-              kicker="MORE WORK"
             />
           )}
         </div>

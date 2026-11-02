@@ -38,27 +38,14 @@ export default function Navbar({ name }) {
   </a>
 
         {/* Navigation */}
-        <div
-          className="navbar-desktop-links hidden md:flex"
-          style={{
-            gap: 20,
-            fontSize: 12,
-            color: c.muted,
-            alignItems: "center",
-          }}
-        >
+        <div className="navbar-desktop-links hidden md:flex">
           {NAV_ITEMS.map(({ name, icon: Icon }) => (
             <a
               key={name}
               href={`#${name.toLowerCase()}`}
               className="nav-link"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-              }}
             >
-              <Icon size={15} strokeWidth={1.8} />
+              <Icon size={14} strokeWidth={1.8} />
               <span>{name}</span>
             </a>
           ))}

@@ -8,8 +8,112 @@ import {
   TerminalSquare,
   Wrench,
 } from "lucide-react";
+import {
+  SiBootstrap,
+  SiCss,
+  SiExpress,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiJupyter,
+  SiLinux,
+  SiMongodb,
+  SiMysql,
+  SiNodedotjs,
+  SiNumpy,
+  SiOpenapiinitiative,
+  SiPandas,
+  SiPostman,
+  SiPython,
+  SiReact,
+  SiRender,
+  SiScikitlearn,
+  SiSqlite,
+  SiTailwindcss,
+  SiVercel,
+} from "@icons-pack/react-simple-icons";
 import Section from "../common/Section";
 import { DEFAULTS } from "../../utils/constants";
+
+const SKILL_ICONS = {
+  react: SiReact,
+  javascript: SiJavascript,
+  css: SiCss,
+  html: SiHtml5,
+  java: Code2,
+  python: SiPython,
+  sql: SiSqlite,
+  mysql: SiMysql,
+  mongodb: SiMongodb,
+  postgres: SiMysql,
+  node: SiNodedotjs,
+  express: SiExpress,
+  tailwind: SiTailwindcss,
+  git: SiGit,
+  github: SiGithub,
+  api: SiOpenapiinitiative,
+  dsa: Code2,
+  dbms: SiSqlite,
+  machine: BrainCircuit,
+  ml: BrainCircuit,
+  ai: BrainCircuit,
+  figma: Code2,
+  vite: SiVercel,
+  bootstrap: SiBootstrap,
+  numpy: SiNumpy,
+  pandas: SiPandas,
+  matplotlib: SiPandas,
+  "scikit-learn": SiScikitlearn,
+  "vs code": Code2,
+  postman: SiPostman,
+  "jupyter notebook": SiJupyter,
+  vercel: SiVercel,
+  render: SiRender,
+  "operating systems": SiLinux,
+  "computer networks": SiLinux,
+};
+
+const BRAND_COLOR_ICONS = new Set([
+  SiReact,
+  SiJavascript,
+  SiCss,
+  SiHtml5,
+  SiPython,
+  SiSqlite,
+  SiMysql,
+  SiMongodb,
+  SiNodedotjs,
+  SiExpress,
+  SiTailwindcss,
+  SiGit,
+  SiGithub,
+  SiOpenapiinitiative,
+  SiBootstrap,
+  SiNumpy,
+  SiPandas,
+  SiScikitlearn,
+  SiPostman,
+  SiJupyter,
+  SiVercel,
+  SiRender,
+  SiLinux,
+]);
+
+function getSkillIcon(label) {
+  const normalized = String(label || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim();
+
+  if (!normalized) return Code2;
+
+  const exactMatch = Object.keys(SKILL_ICONS).find((key) =>
+    normalized.includes(key)
+  );
+
+  return SKILL_ICONS[exactMatch] || Code2;
+}
 
 const CATEGORY_DETAILS = {
   frontend: {
@@ -97,9 +201,19 @@ function SkillCategory({ group }) {
       <p className="skills-category-description">{details.description}</p>
 
       <ul className="skills-chip-list" aria-label={details.title}>
-        {group.items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
+        {group.items.map((item) => {
+          const Icon = getSkillIcon(item);
+          const useBrandColor = BRAND_COLOR_ICONS.has(Icon);
+
+          return (
+            <li key={item}>
+              <span className="skills-chip-icon" aria-hidden="true">
+                <Icon size={15} color={useBrandColor ? "default" : "currentColor"} />
+              </span>
+              <span>{item}</span>
+            </li>
+          );
+        })}
       </ul>
 
       {relatedProjects.length > 0 && (
