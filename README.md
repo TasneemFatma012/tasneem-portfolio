@@ -6,16 +6,17 @@ A responsive, static portfolio showcasing my full-stack web development work, te
   <img src="docs/images/portfolio-hero.png" alt="Portfolio home page featuring Tasneem's introduction, full-stack developer title, and focus areas" width="100%" />
 </p>
 
-## Demo video
+## Demo Video
 
 <p align="center">
-  <video controls width="100%" playsinline poster="docs/images/portfolio-hero.png">
-    <source src="https://raw.githubusercontent.com/TasneemFatma012/tasneem-portfolio/main/docs/video/portfolio-demo.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <a href="docs/video/portfolio-demo.mp4">
+    <img src="docs/images/portfolio-hero.png" alt="Portfolio Demo Video" width="100%">
+  </a>
 </p>
 
-> The portfolio walkthrough is embedded directly from the repo's video asset.
+<p align="center">
+  Click the preview image to watch the portfolio walkthrough.
+</p>
 
 ## About the portfolio
 
