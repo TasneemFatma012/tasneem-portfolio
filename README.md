@@ -9,12 +9,13 @@ A responsive, static portfolio showcasing my full-stack web development work, te
 ## Demo video
 
 <p align="center">
-  <a href="docs/video/portfolio-demo.mp4" target="_blank" rel="noopener noreferrer">
-    <img src="docs/images/portfolio-hero.png" alt="Portfolio demo video preview" width="100%" />
-  </a>
+  <video controls width="100%" playsinline poster="docs/images/portfolio-hero.png">
+    <source src="https://raw.githubusercontent.com/TasneemFatma012/tasneem-portfolio/main/docs/video/portfolio-demo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </p>
 
-> Click the preview image to open the portfolio walkthrough video in `docs/video/portfolio-demo.mp4`.
+> The portfolio walkthrough is embedded directly from the repo's video asset.
 
 ## About the portfolio
 
