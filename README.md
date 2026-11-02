@@ -6,6 +6,17 @@ A responsive, static portfolio showcasing my full-stack web development work, te
   <img src="docs/images/portfolio-hero.png" alt="Portfolio home page featuring Tasneem's introduction, full-stack developer title, and focus areas" width="100%" />
 </p>
 
+## Demo video
+
+<p align="center">
+  <video controls width="100%" poster="docs/images/portfolio-hero.png">
+    <source src="docs/video/portfolio-demo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</p>
+
+> Portfolio walkthrough video is stored in `docs/video/portfolio-demo.mp4`.
+
 ## About the portfolio
 
 The portfolio is built with React and Vite and does not need a custom backend or database. Its content is maintained in the frontend source, and it can be deployed to any static hosting provider.
