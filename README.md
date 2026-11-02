@@ -9,13 +9,12 @@ A responsive, static portfolio showcasing my full-stack web development work, te
 ## Demo video
 
 <p align="center">
-  <video controls width="100%" poster="docs/images/portfolio-hero.png">
-    <source src="docs/video/portfolio-demo.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <a href="docs/video/portfolio-demo.mp4" target="_blank" rel="noopener noreferrer">
+    <img src="docs/images/portfolio-hero.png" alt="Portfolio demo video preview" width="100%" />
+  </a>
 </p>
 
-> Portfolio walkthrough video is stored in `docs/video/portfolio-demo.mp4`.
+> Click the preview image to open the portfolio walkthrough video in `docs/video/portfolio-demo.mp4`.
 
 ## About the portfolio
 
